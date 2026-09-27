@@ -27,7 +27,7 @@ Then open the printed local URL (usually `http://localhost:5173`).
   that becomes a title bar on scroll, photo pane with orbiting socials, dark
   mode pane, interactive tagline, Developer/Designer pane, demographics,
   an illustrated experience "city", About pane, and a "Get in touch" line
-- `developer.html` — engineering work (to be redesigned)
+- `developer.html` — "Pratham develops.": monochrome work page — intro, a featured project in a liquid-glass pane, and every GitHub project as a plain card with a real code excerpt
 - `design.html` — design work (to be redesigned)
 
 ## Project structure
@@ -46,7 +46,8 @@ src/
     paths.js            Developer / Designer pane
     wobble.js           jelly wobble on pane hover
     motion.js           intro, photo-to-title-bar flight, scroll scenes
-  main.js               entry for developer/design pages
+  developer.js / developer.css   developer page entry + styles (Open Runde, Dousan-style cards)
+  main.js               entry for the design page (to be redesigned)
   theme.js              light/dark toggle (persisted, respects system preference)
   preloader.js, cursor.js, smoothScroll.js, animations.js, glass.js, segmented.js
   style.css             shared tokens and styles

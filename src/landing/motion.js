@@ -103,12 +103,11 @@ export function initTitlebar({ lenis, hello }) {
     );
   }
 
-  // Panes stay put. When the photo floats up to the title bar it stays tethered
-  // to its empty frame by a rope, like a balloon.
-  const peg = document.getElementById("ppPeg");
-  const rope = document.getElementById("rope");
-  const ropePath = rope?.querySelector(".rope__line");
-  const ropeKnot = rope?.querySelector(".rope__knot");
+  // Panes stay put. As the photo lifts to the title bar it trails soft,
+  // blurred echoes (motion blur), and its pane keeps a frosted imprint of it —
+  // every in-between frame reads as one continuous motion.
+  const imprint = document.getElementById("ppImprint");
+  const echoes = [...document.querySelectorAll(".pp-echo")];
   const geo = {};
   const docRect = (el) => {
     const r = el.getBoundingClientRect();
@@ -118,32 +117,6 @@ export function initTitlebar({ lenis, hello }) {
     geo.card = docRect(card);
     draw();
   }
-
-  let ropeOn = false;
-  function drawRope(time = performance.now() / 1000) {
-    if (!rope || !peg) return;
-    if (!ropeOn) {
-      rope.style.opacity = "0";
-      return;
-    }
-    const a = peg.getBoundingClientRect();
-    const b = flyer.getBoundingClientRect();
-    const ax = a.left + a.width / 2;
-    const ay = a.top + a.height / 2;
-    const bx = b.left + b.width / 2;
-    const by = b.bottom - 2;
-    const dist = Math.hypot(bx - ax, by - ay);
-    // a little slack that sways, pulled tauter the further the balloon goes
-    const sag = Math.max(10, 46 - dist * 0.04) + Math.sin(time * 1.6) * 6;
-    const mx = (ax + bx) / 2 + sag;
-    const my = (ay + by) / 2 + Math.cos(time * 1.3) * 4;
-    ropePath.setAttribute("d", `M${ax} ${ay} Q${mx} ${my} ${bx} ${by}`);
-    ropeKnot.setAttribute("transform", `translate(${bx} ${by})`);
-    // fade the rope away as its peg scrolls up under the title bar
-    const fade = gsap.utils.clamp(0, 1, (ay - 110) / 140) * gsap.utils.clamp(0, 1, state.p / 0.15);
-    rope.style.opacity = String(fade);
-  }
-  if (rope && !reduced()) gsap.ticker.add((t) => ropeOn && drawRope(t));
 
   const ease = gsap.parseEase("power2.inOut");
   const state = { p: 0 };
@@ -159,26 +132,46 @@ export function initTitlebar({ lenis, hello }) {
       gsap.set(flyer, { autoAlpha: flying ? 1 : 0 });
       gsap.set(zone, { autoAlpha: flying ? 0 : 1 });
       document.body.classList.toggle("is-docking", flying);
-      ropeOn = flying;
+      echoes.forEach((el) => (el.style.opacity = "0"));
     }
+    if (imprint) imprint.style.setProperty("--lift", String(Math.min(1, p * 2.2)));
     if (!flying || !geo.card) return;
 
     // start from where the pane's photo sits in the page (its untransformed layout box)
     const sy = window.scrollY;
     const c = { left: geo.card.left, top: geo.card.top - sy, width: geo.card.width, height: geo.card.height };
     const size = dockSize();
-    const e = ease(p);
-    const w = lerp(c.width, size, e);
-    const h = lerp(c.height, size, e);
-    const cx = lerp(c.left + c.width / 2, h1.getBoundingClientRect().left + size / 2, e);
-    const cy = lerp(c.top + c.height / 2, BAND_CENTRE, e);
-    const radius = lerp(22, size / 2, e);
-    flyer.style.width = `${w}px`;
-    flyer.style.height = `${h}px`;
-    flyer.style.borderRadius = `${Math.min(radius, Math.min(w, h) / 2)}px`;
-    flyer.style.setProperty("--planet", String(e));
-    gsap.set(flyer, { x: cx - w / 2, y: cy - h / 2 });
-    drawRope();
+    const dockX = h1.getBoundingClientRect().left + size / 2;
+    const frame = (q) => {
+      const e = ease(q);
+      const w = lerp(c.width, size, e);
+      const h = lerp(c.height, size, e);
+      return {
+        e,
+        w,
+        h,
+        x: lerp(c.left + c.width / 2, dockX, e) - w / 2,
+        y: lerp(c.top + c.height / 2, BAND_CENTRE, e) - h / 2,
+        r: Math.min(lerp(22, size / 2, e), Math.min(w, h) / 2),
+      };
+    };
+    const place = (el, f) => {
+      el.style.width = `${f.w}px`;
+      el.style.height = `${f.h}px`;
+      el.style.borderRadius = `${f.r}px`;
+      el.style.setProperty("--planet", String(f.e));
+      gsap.set(el, { x: f.x, y: f.y });
+    };
+    place(flyer, frame(p));
+
+    // echoes sit at earlier points on the same path; strongest mid-flight, gone at either end
+    // only once the photo has shrunk — big ghost rectangles early on read as smears
+    const env = Math.sin(Math.PI * Math.min(1, p)) ** 0.8 * gsap.utils.clamp(0, 1, (ease(p) - 0.55) / 0.2);
+    echoes.forEach((el, k) => {
+      const q = Math.max(0, p - (k + 1) * 0.045);
+      place(el, frame(q));
+      el.style.opacity = String(env * (0.45 - k * 0.1));
+    });
 
     const nowDocked = p > 0.995;
     if (nowDocked !== docked) {

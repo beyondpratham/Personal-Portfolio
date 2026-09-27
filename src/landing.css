@@ -33,17 +33,39 @@
   --lg-blend: soft-light;
 
   --spot: rgba(106, 150, 210, 0.42);
-  --g-fill-a: rgba(255, 255, 255, 0.92);
-  --g-fill-b: rgba(255, 255, 255, 0.3);
-  --g-edge-a: rgba(18, 18, 18, 0.4);
-  --g-edge-b: rgba(18, 18, 18, 0.06);
-  --g-line: rgba(18, 18, 18, 0.07);
-  --g-faint: rgba(18, 18, 18, 0.2);
-  --g-slab: rgba(18, 18, 18, 0.12);
-  --g-horizon: rgba(18, 18, 18, 0.14);
-  --acc-research: #e0457f;
+  --acc-research: #0ea5b7;
   --acc-natwest: #7c3aed;
-  --sheen-o: 0.8;
+  --sky-a: #d7e6f8;
+  --sky-b: #eef3fa;
+  --glow-ii: rgba(14, 165, 183, 0.22);
+  --glow-nw: rgba(124, 58, 237, 0.2);
+  --ground: #eef1f5;
+  --slab-f: #cfd6e1;
+  --slab-l: #dbe1ea;
+  --slab-r: #c2cad7;
+  --walk: #f7f9fb;
+  --road: #dde2ea;
+  --lane: #ffffff;
+  --street: #d8dee7;
+  --npc: #4b5563;
+  --h-t: #ffffff;
+  --h-l: #e8ecf2;
+  --h-r: #d5dce7;
+  --hr-l: #ccd4e0;
+  --hr-r: #b6c1d1;
+  --h-win: rgba(70, 120, 200, 0.28);
+  --ii-t: #f7fafb;
+  --ii-l: #e4ecef;
+  --ii-r: #cfdadf;
+  --ii-win: #58d3e0;
+  --ii-brand: #0ea5b7;
+  --nwp-t: #f1ebf8;
+  --nwp-l: #dfd2ee;
+  --nwp-r: #c9b8e0;
+  --nw-t: #cbb6e8;
+  --nw-l: #8b5cc4;
+  --nw-r: #5a287d;
+  --nw-grid: rgba(255, 255, 255, 0.32);
   --glow-c: rgba(80, 135, 210, 0.32);
   --halo: rgba(0, 0, 0, 0.42);
   --lg-top: rgba(255, 255, 255, 0.6);
@@ -81,17 +103,39 @@
   --lg-band-c: rgba(255, 255, 255, 0.1);
   --lg-blend: screen;
     --spot: rgba(110, 160, 230, 0.14);
-    --g-fill-a: rgba(255, 255, 255, 0.13);
-    --g-fill-b: rgba(255, 255, 255, 0.015);
-    --g-edge-a: rgba(255, 255, 255, 0.55);
-    --g-edge-b: rgba(255, 255, 255, 0.06);
-    --g-line: rgba(255, 255, 255, 0.06);
-    --g-faint: rgba(255, 255, 255, 0.18);
-    --g-slab: rgba(255, 255, 255, 0.14);
-    --g-horizon: rgba(255, 255, 255, 0.16);
-    --acc-research: #ff8fbf;
+    --acc-research: #22d3ee;
     --acc-natwest: #a78bfa;
-    --sheen-o: 0.35;
+    --sky-a: #0b1426;
+    --sky-b: #121826;
+    --glow-ii: rgba(34, 211, 238, 0.16);
+    --glow-nw: rgba(167, 139, 250, 0.2);
+    --ground: #12151b;
+    --slab-f: #0a0c10;
+    --slab-l: #0d1015;
+    --slab-r: #07090c;
+    --walk: #171b22;
+    --road: #1b1f27;
+    --lane: rgba(255, 255, 255, 0.28);
+    --street: #1c212a;
+    --npc: #cfd4dc;
+    --h-t: #2c323e;
+    --h-l: #20252f;
+    --h-r: #171b23;
+    --hr-l: #29303c;
+    --hr-r: #1c212a;
+    --h-win: rgba(255, 205, 120, 0.55);
+    --ii-t: #2d3b40;
+    --ii-l: #223137;
+    --ii-r: #19262b;
+    --ii-win: #22d3ee;
+    --ii-brand: #22d3ee;
+    --nwp-t: #2e2640;
+    --nwp-l: #241d35;
+    --nwp-r: #1b1528;
+    --nw-t: #7a55ab;
+    --nw-l: #52317e;
+    --nw-r: #371f55;
+    --nw-grid: rgba(215, 185, 255, 0.26);
     --glow-c: rgba(110, 160, 235, 0.24);
     --halo: rgba(0, 0, 0, 0.95);
     --lg-top: rgba(255, 255, 255, 0.08);
@@ -127,17 +171,39 @@
   --lg-band-c: rgba(255, 255, 255, 0.1);
   --lg-blend: screen;
   --spot: rgba(110, 160, 230, 0.14);
-  --g-fill-a: rgba(255, 255, 255, 0.13);
-  --g-fill-b: rgba(255, 255, 255, 0.015);
-  --g-edge-a: rgba(255, 255, 255, 0.55);
-  --g-edge-b: rgba(255, 255, 255, 0.06);
-  --g-line: rgba(255, 255, 255, 0.06);
-  --g-faint: rgba(255, 255, 255, 0.18);
-  --g-slab: rgba(255, 255, 255, 0.14);
-  --g-horizon: rgba(255, 255, 255, 0.16);
-  --acc-research: #ff8fbf;
+  --acc-research: #22d3ee;
   --acc-natwest: #a78bfa;
-  --sheen-o: 0.35;
+  --sky-a: #0b1426;
+  --sky-b: #121826;
+  --glow-ii: rgba(34, 211, 238, 0.16);
+  --glow-nw: rgba(167, 139, 250, 0.2);
+  --slab-f: #0a0c10;
+  --slab-l: #0d1015;
+  --slab-r: #07090c;
+  --walk: #171b22;
+  --ground: #12151b;
+  --road: #1b1f27;
+  --lane: rgba(255, 255, 255, 0.28);
+  --street: #1c212a;
+  --npc: #cfd4dc;
+  --h-t: #2c323e;
+  --h-l: #20252f;
+  --h-r: #171b23;
+  --hr-l: #29303c;
+  --hr-r: #1c212a;
+  --h-win: rgba(255, 205, 120, 0.55);
+  --ii-t: #2d3b40;
+  --ii-l: #223137;
+  --ii-r: #19262b;
+  --ii-win: #22d3ee;
+  --ii-brand: #22d3ee;
+  --nwp-t: #2e2640;
+  --nwp-l: #241d35;
+  --nwp-r: #1b1528;
+  --nw-t: #7a55ab;
+  --nw-l: #52317e;
+  --nw-r: #371f55;
+  --nw-grid: rgba(215, 185, 255, 0.26);
   --glow-c: rgba(110, 160, 235, 0.24);
   --halo: rgba(0, 0, 0, 0.95);
   --lg-top: rgba(255, 255, 255, 0.08);
@@ -1251,59 +1317,65 @@ body[data-page="landing"] .page > section {
   position: relative;
   min-height: 500px;
 }
-/* when the photo floats up, its frame stays with a faint outline and a peg
-   the balloon's rope is tied to */
-.pp-ghost {
+/* frosted imprint the photo leaves behind in its pane while it's up in the title bar */
+.pp-imprint {
+  --lift: 0;
   position: absolute;
   inset: 20px;
   z-index: 3;
   border-radius: 22px;
-  border: 1.5px dashed var(--line);
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  overflow: hidden;
+  opacity: calc(var(--lift) * 0.55);
   pointer-events: none;
 }
-body.is-docking .pp-ghost {
-  opacity: 1;
-}
-.pp-ghost__note {
-  position: absolute;
-  top: 22px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font: italic 400 1.3rem "Instrument Serif", Georgia, serif;
-  color: var(--ink-faint);
-}
-.pp-ghost__peg {
-  position: absolute;
-  left: 50%;
-  bottom: 34px;
-  width: 12px;
-  height: 12px;
-  margin-left: -6px;
-  border-radius: 50%;
-  background: var(--ink-dim);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--ink) 8%, transparent);
-}
-.rope {
-  position: fixed;
-  inset: 0;
-  z-index: 54;
+.pp-imprint img {
   width: 100%;
   height: 100%;
-  overflow: visible;
-  pointer-events: none;
+  object-fit: cover;
+  object-position: 50% 40%;
+  filter: blur(22px) saturate(1.3);
+  transform: scale(1.12);
+}
+.pp-imprint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 20%, transparent), color-mix(in srgb, var(--bg) 55%, transparent));
+}
+
+/* motion-blur echoes that trail the flying photo */
+.pp-echo {
+  position: fixed;
+  z-index: 54;
+  left: 0;
+  top: 0;
+  overflow: hidden;
   opacity: 0;
+  pointer-events: none;
+  filter: blur(3px);
+  will-change: transform, opacity;
 }
-.rope__line {
-  fill: none;
-  stroke: var(--ink-dim);
-  stroke-width: 1.5;
-  stroke-linecap: round;
+.pp-echo:nth-of-type(2) { filter: blur(5px); }
+.pp-echo:nth-of-type(3) { filter: blur(7px); }
+.pp-echo:nth-of-type(4) { filter: blur(9px); }
+.pp-echo .pp-card__img {
+  position: absolute;
+  inset: 0;
 }
-.rope__knot path {
-  fill: var(--ink-dim);
+.pp-echo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pp-echo .pp-card__wide {
+  object-position: 50% 40%;
+  opacity: calc(1 - var(--planet, 0));
+}
+.pp-echo .pp-card__face {
+  object-position: 50% 45%;
+  opacity: var(--planet, 0);
 }
 .pp-stage {
   position: absolute;
@@ -1504,8 +1576,74 @@ body.is-docking .pp-ghost {
   padding: clamp(22px, 3vw, 32px);
 }
 .exp > .lg__surface {
+  --pad: clamp(22px, 3vw, 32px);
   display: flex;
   flex-direction: column;
+  padding: var(--pad);
+}
+/* the city sits on a backdrop that fills the whole top of the pane, edge to edge */
+.exp__scene {
+  position: relative;
+  z-index: 1;
+  margin: calc(var(--pad) * -1) calc(var(--pad) * -1) 0;
+  padding: var(--pad) var(--pad) 10px;
+  border-radius: 32px 32px 0 0;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 70% at 18% 62%, var(--glow-ii), transparent 70%),
+    radial-gradient(55% 80% at 80% 35%, var(--glow-nw), transparent 70%),
+    radial-gradient(circle, color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1.4px) 0 0 / 22px 22px,
+    linear-gradient(180deg, var(--sky-a), var(--sky-b));
+  -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent);
+  mask-image: linear-gradient(180deg, #000 82%, transparent);
+}
+.exp__scene .exp__head {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0;
+}
+.exp__tile {
+  position: relative;
+  z-index: 4;
+  margin-top: 6px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 35%, transparent);
+  --acc: var(--acc-natwest);
+}
+.exp__tile.is-research {
+  --acc: var(--acc-research);
+}
+.exp__tile .exp__readout {
+  margin-top: 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--acc);
+}
+.exp__points {
+  margin: 14px 0 0;
+  padding-left: 18px;
+}
+.exp__points li {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+.exp__points li + li {
+  margin-top: 4px;
+}
+.exp__links {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+.exp__links:empty {
+  display: none;
+}
+.exp__links a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--acc);
 }
 
 .city {
@@ -1514,108 +1652,135 @@ body.is-docking .pp-ghost {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 18px;
-  overflow: hidden;
+  margin: 4px 0 2px;
 }
-.city {
-  color: var(--ink);
-}
-.city .g-fill-a { stop-color: var(--g-fill-a); }
-.city .g-fill-b { stop-color: var(--g-fill-b); }
-.city .g-edge-a { stop-color: var(--g-edge-a); }
-.city .g-edge-b { stop-color: var(--g-edge-b); }
-.c-glass {
-  fill: url(#gFill);
-  stroke: url(#gEdge);
-  stroke-width: 1.2;
-  transition: stroke 0.4s ease, filter 0.4s ease;
-}
-.c-lines {
-  fill: none;
-  stroke: var(--g-line);
-  stroke-width: 1;
-}
-.c-lines--strong {
-  stroke: var(--g-faint);
-}
-.c-slab {
-  fill: var(--g-slab);
-}
-.c-homes path {
-  fill: none;
-  stroke: var(--g-faint);
-  stroke-width: 1.1;
-  stroke-linejoin: round;
-}
-.c-reflect {
-  opacity: 0.55;
-  pointer-events: none;
-}
-.c-sheen {
-  opacity: var(--sheen-o);
-  mix-blend-mode: soft-light;
-}
-.c-horizon {
-  stroke: var(--g-horizon);
-  stroke-width: 1;
-}
-.c-span {
-  stroke-width: 2;
-  stroke-linecap: round;
-  opacity: 0.3;
-  transition: opacity 0.4s ease;
-}
-.c-span--research { stroke: var(--acc-research); }
-.c-span--natwest { stroke: var(--acc-natwest); }
-.c-node {
-  fill: var(--bg);
-  stroke: var(--g-edge-a);
-  stroke-width: 1.2;
-}
-.c-now { fill: var(--acc-natwest); }
-.c-now-ring {
-  fill: none;
-  stroke: var(--acc-natwest);
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: nowPing 2.2s ease-out infinite;
-}
-@keyframes nowPing {
-  from { transform: scale(1); opacity: 0.8; }
-  to { transform: scale(4.5); opacity: 0; }
-}
-.c-orb { color: var(--acc-natwest); }
-.c-orb.is-research { color: var(--acc-research); }
-.c-orb-core { fill: currentColor; }
-.c-scan { opacity: 0; }
-.c-scan--research { color: var(--acc-research); }
-.c-scan--natwest { color: var(--acc-natwest); }
-.c-mark--research { fill: var(--acc-research); }
+.c-ground { fill: var(--ground); }
+.c-slab-f { fill: var(--slab-f); }
+.c-slab-l { fill: var(--slab-l); }
+.c-slab-r { fill: var(--slab-r); }
+.c-walk { fill: var(--walk); }
+.c-road { fill: var(--road); }
+.c-lane { stroke: var(--lane); stroke-width: 1.2; stroke-dasharray: 8 7; }
+.c-street { stroke: var(--street); stroke-width: 7; stroke-linecap: round; }
+.h-t { fill: var(--h-t); }
+.h-l { fill: var(--h-l); }
+.h-r { fill: var(--h-r); }
+.hr-l { fill: var(--hr-l); }
+.hr-r { fill: var(--hr-r); }
+.h-win { fill: var(--h-win); }
+.ii-t { fill: var(--ii-t); }
+.ii-l { fill: var(--ii-l); }
+.ii-r { fill: var(--ii-r); }
+.ii-win { fill: var(--ii-win); opacity: 0.85; }
+.ii-band { fill: var(--ii-brand); }
+.ii-can-t, .ii-can-l, .ii-can-r { fill: var(--ii-brand); }
+.ii-can-r { filter: brightness(0.8); }
+.ii-logo-bg { fill: #ffffff; stroke: var(--ii-brand); stroke-width: 1; }
+.ii-logo { fill: var(--ii-brand); font: 800 9px "Inter", sans-serif; letter-spacing: 0.04em; }
+.nwp-t { fill: var(--nwp-t); }
+.nwp-l { fill: var(--nwp-l); }
+.nwp-r { fill: var(--nwp-r); }
+.nw-t { fill: var(--nw-t); }
+.nw-l { fill: var(--nw-l); }
+.nw-r { fill: var(--nw-r); }
+.nw-grid { stroke: var(--nw-grid); stroke-width: 0.8; }
+.nw-logo-bg { fill: #ffffff; }
 .nw-a { fill: #8e4bc0; }
 .nw-b { fill: #5a287d; }
 .nw-c { fill: #42145f; }
-.c-label {
-  fill: var(--ink-dim);
-  font: 500 10px "JetBrains Mono", ui-monospace, monospace;
-  letter-spacing: 0.01em;
-}
+.nw-word { fill: #ffffff; font: 700 8px "Inter", sans-serif; letter-spacing: 0.02em; }
+.npc { fill: var(--npc); }
+.npc--1 { fill: var(--acc-research); }
+.npc--3 { fill: var(--acc-natwest); }
 
 #bld-research { --acc: var(--acc-research); }
 #bld-natwest { --acc: var(--acc-natwest); }
 .bld {
   cursor: pointer;
   outline: none;
+  transition: filter 0.45s ease, transform 0.5s var(--ease-spring);
 }
-.bld.is-active .c-glass {
-  stroke: var(--acc);
-  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--acc) 55%, transparent));
+.bld:hover,
+.bld:focus-visible {
+  transform: translateY(-3px);
 }
-.bld:focus-visible .c-glass {
+.bld.is-active {
+  filter: drop-shadow(0 0 14px color-mix(in srgb, var(--acc) 60%, transparent));
+}
+.c-ring {
+  fill: none;
   stroke-width: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transform-box: fill-box;
+  transform-origin: center;
 }
-.city:has(#bld-research.is-active) .c-span--research,
-.city:has(#bld-natwest.is-active) .c-span--natwest {
-  opacity: 1;
+.c-ring--research { stroke: var(--acc-research); }
+.c-ring--natwest { stroke: var(--acc-natwest); }
+.city:has(#bld-research.is-active) .c-ring--research,
+.city:has(#bld-natwest.is-active) .c-ring--natwest {
+  opacity: 0.8;
+  animation: ringPulse 2.4s ease-in-out infinite;
+}
+@keyframes ringPulse {
+  50% { transform: scale(1.08); opacity: 0.35; }
+}
+.c-orb {
+  fill: var(--acc-natwest);
+  filter: drop-shadow(0 0 6px var(--acc-natwest));
+}
+.c-orb.is-research {
+  fill: var(--acc-research);
+  filter: drop-shadow(0 0 6px var(--acc-research));
+}
+
+/* header: present-role shortcut + exact total */
+.exp__head {
+  align-items: center;
+}
+.pane-eyebrow.exp__head > span:first-child {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.exp__head-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.exp__total {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--pop);
+}
+.exp__present {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--acc-natwest) 55%, transparent);
+  background: color-mix(in srgb, var(--acc-natwest) 10%, transparent);
+  color: var(--acc-natwest);
+  font: 600 0.75rem "Inter", sans-serif;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.3s var(--ease-spring);
+}
+.exp__present[hidden] {
+  display: none;
+}
+.exp__present:hover {
+  background: color-mix(in srgb, var(--acc-natwest) 18%, transparent);
+  transform: translateY(-1px);
+}
+.exp__present svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .exp__readout {
@@ -1643,10 +1808,6 @@ body.is-docking .pp-ghost {
   font-weight: 600;
   letter-spacing: -0.02em;
 }
-.exp__note {
-  font-size: 0.78rem;
-  color: var(--ink-faint);
-}
 .exp__stat {
   display: flex;
   flex-direction: column;
@@ -1654,22 +1815,11 @@ body.is-docking .pp-ghost {
   flex-shrink: 0;
 }
 .exp__num {
-  display: flex;
-  align-items: baseline;
-  gap: 3px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--pop);
-}
-.exp__num b {
-  font-size: 2.2rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-}
-.exp__num i {
-  font-style: normal;
-  font-size: 0.75rem;
-  font-weight: 500;
+  white-space: nowrap;
 }
 .exp__dates {
   margin-top: 4px;
@@ -1698,8 +1848,8 @@ body.is-docking .pp-ghost {
 }
 .about__lead {
   margin: 0;
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
-  line-height: 1.4;
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  line-height: 1.42;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
@@ -1710,26 +1860,98 @@ body.is-docking .pp-ghost {
   background-clip: text;
   color: transparent;
 }
-.about__side p {
-  margin: 0 0 14px;
+.about__focus {
+  margin: 14px 0 0;
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--ink-dim);
 }
+.about__courses {
+  margin-top: 22px;
+}
+.about__label {
+  display: block;
+  margin: 14px 0 8px;
+  font: 500 0.7rem "Space Mono", ui-monospace, monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
 .about__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 18px 0 0;
+  gap: 7px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .about__tags li {
-  padding: 7px 13px;
+  padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
   font-size: 0.78rem;
   font-weight: 600;
+  color: var(--ink-dim);
+}
+.about__tags--soft li {
+  font-weight: 500;
+  border-style: dashed;
+}
+
+.journey {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.journey::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--line);
+}
+.journey li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 12px;
+  padding: 0 0 20px 26px;
+}
+.journey li:last-child {
+  padding-bottom: 0;
+}
+.journey li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--pop);
+}
+.journey li:first-child::before {
+  background: var(--pop);
+}
+.journey__when {
+  font: 500 0.74rem "JetBrains Mono", ui-monospace, monospace;
+  color: var(--ink-dim);
+  padding-top: 2px;
+}
+.journey h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.journey p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
   color: var(--ink-dim);
 }
 
@@ -1791,6 +2013,10 @@ body.is-docking .pp-ghost {
 @media (max-width: 960px) {
   .about {
     grid-template-columns: 1fr;
+  }
+  .journey li {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
   .grid-top,
   .grid-bottom {

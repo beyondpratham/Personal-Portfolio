@@ -66,9 +66,14 @@ export function initResume() {
     tl.fromTo(doc, { y: 8, scale: 0.6, rotation: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.6, ease: "back.out(2.2)" }, 1.05);
   }
 
+  // only after the cursor has rested on the button a moment, so passing over it doesn't fire it
+  let dwell;
   btn.addEventListener("pointerenter", (e) => {
-    if (e.pointerType === "mouse") toss();
+    if (e.pointerType !== "mouse") return;
+    clearTimeout(dwell);
+    dwell = setTimeout(toss, 550);
   });
+  btn.addEventListener("pointerleave", () => clearTimeout(dwell));
   btn.addEventListener("focus", (e) => {
     if (e.target.matches(":focus-visible")) toss();
   });
