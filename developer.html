@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer — Pratham Singhal</title>
+    <meta
+      name="description"
+      content="Pratham Singhal, Software Development Engineer at NatWest Group — experience, technical skills, and engineering projects."
+    />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ps-theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body data-page="developer" data-vibe="developer">
+    <svg class="glass-defs" aria-hidden="true">
+      <filter id="liquid-distort" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="2" result="blurredNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="30" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor__dot"></div>
+      <div class="cursor__ring"></div>
+    </div>
+
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__word">
+        <span>P</span><span>R</span><span>A</span><span>T</span><span>H</span
+        ><span>A</span><span>M</span>
+      </div>
+      <div class="preloader__bar"><span></span></div>
+    </div>
+
+    <header class="nav" data-reveal="hero">
+      <div class="nav__cluster nav__cluster--left" data-glass data-tilt="0">
+        <a href="index.html" class="nav__link">About Me</a>
+        <a href="resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a>
+      </div>
+
+      <div class="nav__cluster nav__cluster--center">
+        <div class="segmented glass-flagship" data-glass data-segmented data-active="developer" data-tilt="4">
+          <a href="developer.html" class="segmented__option" data-option="developer">Developer</a>
+          <a href="design.html" class="segmented__option" data-option="design">Designer</a>
+          <span class="segmented__thumb" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="nav__cluster nav__cluster--right" data-glass data-tilt="0">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle__thumb">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+          </span>
+        </button>
+        <a href="index.html" class="nav__name">Pratham Singhal</a>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">About Me</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="developer.html">Developer</a>
+      <a href="design.html">Designer</a>
+    </div>
+
+    <main>
+      <section>
+        <div class="section-head" data-reveal>
+          <span class="section-tag">&lt;/&gt; Developer</span>
+          <h2>I build systems that hold up.</h2>
+          <p>
+            Currently an SDE1 at NatWest Group, working on payments
+            infrastructure. Before that, IIIT&#8209;Delhi CS &amp; Design,
+            research, and a lot of side projects.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline__item" data-glass data-tilt="2" data-reveal>
+            <div class="timeline__meta">
+              <span class="tag">Full-time</span>
+              <div class="timeline__role">Software Development Engineer 1</div>
+              <div class="timeline__org">NatWest Group</div>
+              <div class="timeline__dates">Jul 2025 &mdash; Present &middot; Gurugram, India</div>
+            </div>
+            <div class="timeline__body">
+              <ul>
+                <li>
+                  Owned and scaled a <strong>Java (Spring Boot) / Python REST API</strong>
+                  platform for international payments processing, adopted by
+                  <strong>12+ engineering teams</strong> across NatWest.
+                </li>
+                <li>
+                  Engineered a webhook/callback-driven e-signature integration
+                  with <strong>Adobe eSign</strong> handling
+                  <strong>8,000+ requests/hour</strong> in production, secured
+                  with mutual TLS (mTLS).
+                </li>
+                <li>
+                  Enforced auth, rate limiting, and traffic policies for
+                  <strong>15+ REST APIs</strong> via API gateways (Tyk,
+                  Apigee); architected persistence across MongoDB/Oracle SQL
+                  with a Redis/Valkey cache on AWS ElastiCache, cutting p95
+                  latency <strong>~35%</strong>.
+                </li>
+                <li>
+                  Containerized services with <strong>Docker</strong>,
+                  deployed via <strong>Kubernetes</strong>, and owned CI/CD on
+                  AWS &mdash; cutting release time from hours to under
+                  15 minutes.
+                </li>
+                <li>
+                  Established async <strong>IBM MQ</strong> workflows and
+                  multithreaded Java services; led vulnerability/CVE
+                  remediation and built internal Streamlit/invoke developer
+                  tooling.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item" data-glass data-tilt="2" data-reveal>
+            <div class="timeline__meta">
+              <span class="tag">Research</span>
+              <div class="timeline__role">Undergraduate Research Assistant</div>
+              <div class="timeline__org">IIIT&#8209;Delhi &middot; Guide: Dr. Dhruv Kumar</div>
+              <div class="timeline__dates">Aug 2023 &mdash; Apr 2024</div>
+            </div>
+            <div class="timeline__body">
+              <ul>
+                <li>
+                  Built a <strong>Python</strong> data pipeline (web scraping
+                  + PDF&#8209;to&#8209;CSV parsing) extracting raw NIRF
+                  ranking data from government reports, powering a
+                  <strong>React</strong>-based transparent ranking dashboard.
+                </li>
+                <li>
+                  Conducted user research on India's opaque NIRF ranking
+                  methodology, applied <strong>HCI</strong> principles to
+                  redesign the criteria and interface, and co-authored the
+                  findings into a research paper.
+                </li>
+              </ul>
+              <div class="timeline__links">
+                <a href="https://github.com/plon-Susk7/CS-RANKINGS" target="_blank" rel="noopener">Code &rarr;</a>
+                <a href="https://www.overleaf.com/read/knszfvykbjvv#de0c29" target="_blank" rel="noopener">Paper &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head" data-reveal>
+          <span class="section-tag">Skills</span>
+          <h2>Technical toolbox</h2>
+        </div>
+
+        <div class="skill-groups">
+          <div class="skill-group" data-glass data-tilt="2" data-reveal>
+            <h3>Languages</h3>
+            <ul class="chip-list">
+              <li class="chip">Java</li>
+              <li class="chip">Python</li>
+              <li class="chip">C/C++</li>
+              <li class="chip">C#</li>
+              <li class="chip">Haskell</li>
+              <li class="chip">SQL</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">HTML/CSS</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-glass data-tilt="2" data-reveal>
+            <h3>Machine Learning &amp; Data</h3>
+            <ul class="chip-list">
+              <li class="chip">PyTorch</li>
+              <li class="chip">HuggingFace</li>
+              <li class="chip">NLP</li>
+              <li class="chip">NLTK</li>
+              <li class="chip">NumPy</li>
+              <li class="chip">Pandas</li>
+              <li class="chip">Matplotlib</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-glass data-tilt="2" data-reveal>
+            <h3>Frameworks, DBs &amp; Caching</h3>
+            <ul class="chip-list">
+              <li class="chip">Spring Boot</li>
+              <li class="chip">Flask</li>
+              <li class="chip">Streamlit</li>
+              <li class="chip">REST APIs</li>
+              <li class="chip">MongoDB</li>
+              <li class="chip">Oracle SQL</li>
+              <li class="chip">MySQL</li>
+              <li class="chip">Redis</li>
+              <li class="chip">Valkey</li>
+            </ul>
+          </div>
+
+          <div class="skill-group" data-glass data-tilt="2" data-reveal>
+            <h3>Cloud, DevOps &amp; Infra</h3>
+            <ul class="chip-list">
+              <li class="chip">AWS</li>
+              <li class="chip">Docker</li>
+              <li class="chip">Kubernetes</li>
+              <li class="chip">CI/CD</li>
+              <li class="chip">Git</li>
+              <li class="chip">Swagger/OpenAPI</li>
+              <li class="chip">Tyk</li>
+              <li class="chip">Apigee</li>
+              <li class="chip">mTLS</li>
+              <li class="chip">IBM MQ</li>
+            </ul>
+          </div>
+
+          <div class="skill-group skill-group--full" data-glass data-tilt="1.5" data-reveal>
+            <h3>CS Fundamentals &amp; System Design</h3>
+            <ul class="chip-list">
+              <li class="chip">Data Structures &amp; Algorithms</li>
+              <li class="chip">Object-Oriented Design</li>
+              <li class="chip">System Design (HLD/LLD)</li>
+              <li class="chip">Microservices</li>
+              <li class="chip">Operating Systems</li>
+              <li class="chip">Computer Networks</li>
+              <li class="chip">Multithreading &amp; Concurrency</li>
+              <li class="chip">Distributed Systems</li>
+              <li class="chip">Agile/Scrum</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="section-head" data-reveal>
+          <span class="section-tag">Projects</span>
+          <h2>Featured builds</h2>
+        </div>
+
+        <div class="projects">
+          <article class="project-card" data-glass data-tilt="3" data-reveal>
+            <div class="project-card__body">
+              <h3>Mr. Pasteur</h3>
+              <p>
+                Database-first dairy commerce system: a 3NF-normalized
+                16-table MySQL schema with 5 business-rule triggers enforcing
+                stock locking and discount caps at the schema level; atomic
+                checkout via an ACID stored procedure and schema-level RBAC
+                across 4 roles.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">Python</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">SQL</span>
+              </div>
+              <div class="project-card__links">
+                <a href="https://github.com/beyondpratham/Mr-Pasteur-Db" target="_blank" rel="noopener">GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-glass data-tilt="3" data-reveal>
+            <div class="project-card__body">
+              <h3>AI Repo Buddy</h3>
+              <p>
+                A Streamlit tool that clones any GitHub repo, detects its
+                stack across 6+ ecosystems, and installs dependencies in an
+                isolated per-clone virtual environment &mdash; with
+                Gemini-powered README command extraction and self-healing
+                retries.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">Python</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">Gemini API</span>
+              </div>
+              <div class="project-card__links">
+                <a href="https://github.com/beyondpratham/AI-Repo-Buddy" target="_blank" rel="noopener">GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-glass data-tilt="3" data-reveal>
+            <div class="project-card__body">
+              <h3>BetterWorldNow</h3>
+              <p>
+                Environmental engagement platform scoped with a 116-response
+                survey and 11 field interviews (chi-squared validated).
+                Shipped gamified quizzes, a leaderboard, and a
+                coupon-redemption rewards engine with real eco-brand
+                partners.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">React</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">HTML/CSS</span>
+              </div>
+              <div class="project-card__links">
+                <a href="https://github.com/beyondpratham/Better-World-Now" target="_blank" rel="noopener">GitHub &rarr;</a>
+                <a href="https://sidg2003.github.io/betterworldnow/" target="_blank" rel="noopener">Live site &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-glass data-tilt="3" data-reveal>
+            <div class="project-card__body">
+              <h3>Hindi Text Summarization</h3>
+              <p>
+                End-to-end Hindi abstractive summarization pipeline on the
+                ~70K-article XL-Sum dataset &mdash; from extractive baselines
+                to a fine-tuned IndicBART transformer, evaluated with ROUGE
+                and BERTScore, packaged as a tested CLI library.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">HuggingFace</span>
+                <span class="tag">IndicBART</span>
+              </div>
+              <div class="project-card__links">
+                <a href="https://github.com/beyondpratham/Text-Summariser-NLP" target="_blank" rel="noopener">GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="more-projects">
+          <a class="more-project" data-glass data-tilt="3" data-reveal href="https://github.com/beyondpratham/Auto-Pilot-India" target="_blank" rel="noopener">
+            <h4>Auto-Pilot India</h4>
+            <p>Object detection + risk-weighted navigation for autonomous vehicles in Indian road conditions.</p>
+          </a>
+          <a class="more-project" data-glass data-tilt="3" data-reveal href="https://github.com/beyondpratham/Assembler-Simulator" target="_blank" rel="noopener">
+            <h4>Assembler &amp; Simulator</h4>
+            <p>From-scratch assembler and simulator for a 16-bit RISC ISA with a browser UI.</p>
+          </a>
+          <a class="more-project" data-glass data-tilt="3" data-reveal href="https://github.com/beyondpratham/Tank-Stars-Game" target="_blank" rel="noopener">
+            <h4>Tank Stars (Java)</h4>
+            <p>LibGDX implementation of Tank Stars with iterator/strategy design patterns and save/load.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-footer" id="contact">
+        <div class="contact-footer__inner" data-glass data-tilt="2" data-reveal>
+          <span class="section-tag">Get in touch</span>
+          <h2>Let's build<br />something <span class="italic">great</span>.</h2>
+          <a href="mailto:prathamrd28@gmail.com" class="contact-footer__email" data-magnetic>
+            prathamrd28@gmail.com
+          </a>
+          <div class="contact-footer__socials">
+            <a href="https://linkedin.com/in/beyondpratham" target="_blank" rel="noopener" data-magnetic>LinkedIn</a>
+            <a href="https://github.com/beyondpratham" target="_blank" rel="noopener" data-magnetic>GitHub</a>
+            <a href="mailto:prathamrd28@gmail.com" data-magnetic>Email</a>
+          </div>
+        </div>
+        <footer class="site-footer">
+          <p>&copy; <span id="year"></span> Pratham Singhal. All rights reserved.</p>
+        </footer>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
