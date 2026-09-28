@@ -25,7 +25,10 @@
   <body data-page="developer">
     <main class="page dev">
       <header class="dev-head">
-        <h1 class="dev-title"><a class="dev-title__name" href="index.html" data-hack>Pratham</a> develops.</h1>
+        <div class="dev-head__lead">
+          <a class="lg lg--circle back-btn" href="index.html" aria-label="Back to home"><span class="lg__surface"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg></span></a>
+          <h1 class="dev-title"><a class="dev-title__name" href="index.html" data-hack>Pratham</a> develops.</h1>
+        </div>
         <div class="hello-actions" id="helloActions">
           <button class="lg lg--pill theme-pill" data-theme-toggle aria-label="Dark mode" aria-pressed="false">
             <span class="lg__surface">
@@ -104,11 +107,12 @@
       <section class="dev-projects">
         <p class="dev-label" data-fade>More projects</p>
         <div class="proj-grid">
-          <article class="proj" data-fade>
-            <a class="proj__hit" href="https://github.com/beyondpratham/AI-Repo-Buddy" target="_blank" rel="noopener" aria-label="AI Repo Buddy on GitHub"></a>
+          <article class="proj" data-fade data-more>
+            <button class="proj__hit" type="button" aria-label="More about AI Repo Buddy"></button>
             <span class="lg lg--pill proj__chip"><span class="lg__surface"><i class="proj__dot "></i>Open source</span></span>
             <div class="demo" aria-hidden="true">
-              <video class="demo__video" src="/demos/aibuddy.mp4" poster="/demos/aibuddy.jpg" muted loop playsinline preload="none"></video>
+              <img class="demo__poster" src="/demos/aibuddy.jpg" alt="" loading="lazy" />
+              <video class="demo__video" src="/demos/aibuddy.mp4" muted loop playsinline preload="none"></video>
             </div>
             <div class="proj__text">
               <h3>AI Repo Buddy</h3>
@@ -118,12 +122,14 @@
                 <span class="proj__links"><a class="proj__link" href="https://github.com/beyondpratham/AI-Repo-Buddy" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a></span>
               </div>
             </div>
+            <template class="proj__more"><p>A Streamlit assistant that clones a repository, works out its stack, installs its dependencies and starts it for you — with a Gemini chat layer that reads the README when rule-based parsing isn&#x27;t enough.</p><ul><li>Stack detection for Python, Node.js, Go, Rust, Ruby, Java and Docker Compose</li><li>Per-clone virtual environments — never the system interpreter</li><li>Starts frontend and backend together, streams logs and auto-detects the port</li><li>Self-healing runs: retries failed commands and repairs broken paths</li><li>A process-wide lock serializes setups; CI lints and tests every push</li></ul></template>
           </article>
-          <article class="proj" data-fade>
-            <a class="proj__hit" href="https://github.com/beyondpratham/Mr-Pasteur-Db" target="_blank" rel="noopener" aria-label="Mr. Pasteur on GitHub"></a>
+          <article class="proj" data-fade data-more>
+            <button class="proj__hit" type="button" aria-label="More about Mr. Pasteur"></button>
             <span class="lg lg--pill proj__chip"><span class="lg__surface"><i class="proj__dot "></i>Tested</span></span>
             <div class="demo" aria-hidden="true">
-              <video class="demo__video" src="/demos/pasteur.mp4" poster="/demos/pasteur.jpg" muted loop playsinline preload="none"></video>
+              <img class="demo__poster" src="/demos/pasteur.jpg" alt="" loading="lazy" />
+              <video class="demo__video" src="/demos/pasteur.mp4" muted loop playsinline preload="none"></video>
             </div>
             <div class="proj__text">
               <h3>Mr. Pasteur</h3>
@@ -133,27 +139,31 @@
                 <span class="proj__links"><a class="proj__link" href="https://github.com/beyondpratham/Mr-Pasteur-Db" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a></span>
               </div>
             </div>
+            <template class="proj__more"><p>A database-first dairy commerce system. The database is the project: integrity constraints, triggers and stored routines, driven by a Python CLI for customers, suppliers, admins and couriers.</p><ul><li>16 normalized relations and five business-rule triggers</li><li>Checkout is one atomic stored procedure — all of the order or none of it</li><li>Four MySQL roles: a courier account cannot even SELECT a customer&#x27;s phone</li><li>Reproduces a lost-update and a last-unit stock race live, and shows the locking that prevents it</li><li>OLAP analytics with RANK, LAG, NTILE and a lifetime-value function</li></ul></template>
           </article>
-          <article class="proj" data-fade>
-            <a class="proj__hit" href="https://github.com/beyondpratham/Better-World-Now" target="_blank" rel="noopener" aria-label="BetterWorldNow on GitHub"></a>
+          <article class="proj" data-fade data-more>
+            <button class="proj__hit" type="button" aria-label="More about BetterWorldNow"></button>
             <span class="lg lg--pill proj__chip"><span class="lg__surface"><i class="proj__dot is-live"></i>Live</span></span>
             <div class="demo" aria-hidden="true">
-              <video class="demo__video" src="/demos/betterworld.mp4" poster="/demos/betterworld.jpg" muted loop playsinline preload="none"></video>
+              <img class="demo__poster" src="/demos/betterworld.jpg" alt="" loading="lazy" />
+              <video class="demo__video" src="/demos/betterworld.mp4" muted loop playsinline preload="none"></video>
             </div>
             <div class="proj__text">
               <h3>BetterWorldNow</h3>
               <p>Environmental engagement platform — quizzes, leaderboard and a rewards engine, scoped with 116 surveys.</p>
               <div class="proj__foot">
-                <ul class="proj__tags"><li>JavaScript</li><li>React</li></ul>
+                <ul class="proj__tags"><li>JavaScript</li><li>Tailwind</li><li>GSAP</li></ul>
                 <span class="proj__links"><a class="proj__link" href="https://beyondpratham.github.io/Better-World-Now/" target="_blank" rel="noopener">Live site &nearr;</a><a class="proj__link" href="https://github.com/beyondpratham/Better-World-Now" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a></span>
               </div>
             </div>
+            <template class="proj__more"><p>Started as a Design of Interactive Systems project at IIIT-Delhi, on one idea: people act on sustainability more when their effort is recognized and rewarded, not just informed.</p><ul><li>Grounded in 116 survey responses and 11 field interviews</li><li>Quizzes, 100+ facts, a leaderboard, a blog and a progress tree that grows</li><li>Points redeem for coupons from eco-friendly brands</li><li>A swipeable deck of actions with proof upload (GSAP Draggable)</li><li>Liquid-glass UI with SVG refraction and a dark/light theme</li></ul></template>
           </article>
-          <article class="proj" data-fade>
-            <a class="proj__hit" href="https://github.com/beyondpratham/Auto-Pilot-India" target="_blank" rel="noopener" aria-label="Auto-Pilot India on GitHub"></a>
+          <article class="proj" data-fade data-more>
+            <button class="proj__hit" type="button" aria-label="More about Auto-Pilot India"></button>
             <span class="lg lg--pill proj__chip"><span class="lg__surface"><i class="proj__dot "></i>ML</span></span>
             <div class="demo" aria-hidden="true">
-              <video class="demo__video" src="/demos/autopilot.mp4" poster="/demos/autopilot.jpg" muted loop playsinline preload="none"></video>
+              <img class="demo__poster" src="/demos/autopilot.jpg" alt="" loading="lazy" />
+              <video class="demo__video" src="/demos/autopilot.mp4" muted loop playsinline preload="none"></video>
             </div>
             <div class="proj__text">
               <h3>Auto-Pilot India</h3>
@@ -163,12 +173,14 @@
                 <span class="proj__links"><a class="proj__link" href="https://github.com/beyondpratham/Auto-Pilot-India" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a></span>
               </div>
             </div>
+            <template class="proj__more"><p>Built for CSE343: a pretrained Faster R-CNN finds people, vehicles and animals, the forward view is split into left, straight and right, and the car takes the lowest-risk lane — or brakes.</p><ul><li>Real bounding-box detection on any image, video or webcam feed</li><li>Risk weighted by class, confidence and proximity</li><li>Benchmark of HOG+SVM, Logistic Regression, Naive Bayes and Random Forest against a transfer-learning CNN</li><li>Accuracy, precision, recall and F1 comparison; unit-tested with pytest</li></ul></template>
           </article>
-          <article class="proj" data-fade>
-            <a class="proj__hit" href="https://github.com/beyondpratham/Assembler-Simulator" target="_blank" rel="noopener" aria-label="RISC Assembler &amp; Simulator on GitHub"></a>
+          <article class="proj" data-fade data-more>
+            <button class="proj__hit" type="button" aria-label="More about RISC Assembler &amp; Simulator"></button>
             <span class="lg lg--pill proj__chip"><span class="lg__surface"><i class="proj__dot "></i>Tested</span></span>
             <div class="demo" aria-hidden="true">
-              <video class="demo__video" src="/demos/assembler.mp4" poster="/demos/assembler.jpg" muted loop playsinline preload="none"></video>
+              <img class="demo__poster" src="/demos/assembler.jpg" alt="" loading="lazy" />
+              <video class="demo__video" src="/demos/assembler.mp4" muted loop playsinline preload="none"></video>
             </div>
             <div class="proj__text">
               <h3>RISC Assembler &amp; Simulator</h3>
@@ -178,12 +190,14 @@
                 <span class="proj__links"><a class="proj__link" href="https://github.com/beyondpratham/Assembler-Simulator" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a></span>
               </div>
             </div>
+            <template class="proj__more"><p>A from-scratch assembler and simulator for a small 16-bit RISC ISA, with a browser UI for assembling and stepping through a program.</p><ul><li>Assembled binary, register/flag trace, memory-access chart and a 256-word memory dump</li><li>Works as a Python library, a stdin/stdout CLI or a Flask web app</li><li>invoke tasks to run, assemble, simulate and test</li><li>pytest suite with hand-crafted fixtures, run in CI</li></ul></template>
           </article>
-          <article class="proj" data-fade>
-            <a class="proj__hit" href="https://github.com/beyondpratham/Tank-Stars-Game" target="_blank" rel="noopener" aria-label="Tank Stars on GitHub"></a>
+          <article class="proj" data-fade data-more>
+            <button class="proj__hit" type="button" aria-label="More about Tank Stars"></button>
             <span class="lg lg--pill proj__chip"><span class="lg__surface"><i class="proj__dot "></i>Game</span></span>
             <div class="demo" aria-hidden="true">
-              <video class="demo__video" src="/demos/tankstars.mp4" poster="/demos/tankstars.jpg" muted loop playsinline preload="none"></video>
+              <img class="demo__poster" src="/demos/tankstars.jpg" alt="" loading="lazy" />
+              <video class="demo__video" src="/demos/tankstars.mp4" muted loop playsinline preload="none"></video>
             </div>
             <div class="proj__text">
               <h3>Tank Stars</h3>
@@ -193,6 +207,7 @@
                 <span class="proj__links"><a class="proj__link" href="https://github.com/beyondpratham/Tank-Stars-Game" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a></span>
               </div>
             </div>
+            <template class="proj__more"><p>A Java and LibGDX implementation of Tank Stars that covers most of the original game, plus a few new ideas.</p><ul><li>Three distinct tanks</li><li>Strategy and iterator design patterns</li><li>Save and resume through serialization</li><li>A separate screen class for each game state; built with Gradle</li></ul></template>
           </article>
         </div>
       </section>

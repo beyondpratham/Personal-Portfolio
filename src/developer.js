@@ -6,9 +6,11 @@ import "./style.css";
 import "./landing.css";
 import "./developer.css";
 import { initTheme } from "./theme.js";
+import { initProjectModal, initReels } from "./projectModal.js";
 import { initSmoothScroll } from "./smoothScroll.js";
 import { initGlassLight } from "./landing/glassLight.js";
 import { initResume } from "./landing/resume.js";
+import { initWobble } from "./landing/wobble.js";
 
 const KEYWORDS = {
   python: "def return if else elif for in not None try except raise import from class and or True False is self while with as",
@@ -102,31 +104,13 @@ function initNameHack() {
   });
 }
 
-/** Project demos play while hovered (tap on touch), pause and rewind on leave. */
-function initDemos() {
-  document.querySelectorAll(".proj").forEach((card) => {
-    const v = card.querySelector(".demo__video");
-    if (!v) return;
-    const play = () => {
-      card.classList.add("is-playing");
-      v.play().catch(() => {});
-    };
-    const stop = () => {
-      card.classList.remove("is-playing");
-      v.pause();
-      v.currentTime = 0;
-    };
-    card.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && play());
-    card.addEventListener("pointerleave", (e) => e.pointerType === "mouse" && stop());
-    card.addEventListener("focusin", play);
-    card.addEventListener("focusout", (e) => !card.contains(e.relatedTarget) && stop());
-  });
-}
-
 initTheme();
-initSmoothScroll();
+const lenis = initSmoothScroll();
 initNameHack();
-initDemos();
+initReels();
+initWobble(); // featured glass pane, like the landing page
+initWobble(".proj", { surface: null, tilt: 4 });
+initProjectModal({ lenis, variant: "dev" });
 highlight();
 initGlassLight();
 initResume();

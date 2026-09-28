@@ -1,0 +1,208 @@
+/* ==================================================================
+   PROJECT POPUP — shared by developer + designer pages.
+   ================================================================== */
+.pm {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 4vw, 48px);
+}
+.pm[hidden] {
+  display: none;
+}
+/* plain tint — a full-screen backdrop blur is what made the old popup lag */
+.pm__veil {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg) 62%, transparent);
+}
+.pm--design .pm__veil {
+  background: color-mix(in srgb, var(--c, #ff3d7f) 14%, color-mix(in srgb, var(--bg) 66%, transparent));
+}
+.pm__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  width: min(1120px, 100%);
+  max-height: calc(100dvh - 2 * clamp(12px, 4vw, 48px));
+  overflow: auto;
+  padding: 24px;
+  border-radius: 36px;
+  /* liquid glass: frosted, saturated, lit rim */
+  background: linear-gradient(-75deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.05)),
+    color-mix(in srgb, var(--card) 80%, transparent);
+  backdrop-filter: blur(28px) saturate(1.7);
+  -webkit-backdrop-filter: blur(28px) saturate(1.7);
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, 0.55), inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 50px 100px -40px rgba(0, 0, 0, 0.45);
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  will-change: transform;
+}
+.pm__panel::-webkit-scrollbar {
+  display: none;
+}
+.pm__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--code-bg, #f4f4f5);
+}
+.pm__poster,
+.pm__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pm__video {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.pm__media.has-frame .pm__video {
+  opacity: 1;
+}
+.pm__body {
+  padding: 8px 12px 8px 4px;
+}
+.pm__chip {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+  color: var(--ink-dim);
+}
+.pm__body h2 {
+  margin: 14px 0 10px;
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+.pm__lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.pm__points {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pm__points li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.pm__points li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.pm__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 22px;
+}
+.pm__links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.pm__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+.pm__close > .lg__surface {
+  display: grid;
+  place-items: center;
+}
+.pm__close svg {
+  position: relative;
+  z-index: 4;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+/* designer: tall portrait reel, colour-led details */
+.pm--design .pm__panel {
+  grid-template-columns: auto minmax(0, 1fr);
+  width: min(1060px, 100%);
+}
+.pm--design .pm__media {
+  aspect-ratio: 4 / 5;
+  height: min(72vh, 640px);
+}
+.pm--design .pm__chip {
+  background: color-mix(in srgb, var(--c) 18%, var(--card));
+  color: color-mix(in srgb, var(--c) 70%, var(--ink));
+}
+.pm--design .pm__points li::before {
+  background: var(--c);
+}
+.pm--design .pm__panel {
+  box-shadow: inset 0 1.5px 1px rgba(255, 255, 255, 0.55), inset 0 -1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 50px 110px -40px color-mix(in srgb, var(--c) 60%, rgba(0, 0, 0, 0.4));
+}
+
+/* the source card hides while its surface is out on screen */
+.proj.is-lifted {
+  visibility: hidden;
+}
+html.pm-open,
+html.pm-open body {
+  overflow: hidden;
+}
+
+@media (max-width: 860px) {
+  .pm__panel,
+  .pm--design .pm__panel {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+    padding: 16px;
+    border-radius: 30px;
+  }
+  .pm--design .pm__media {
+    height: auto;
+    width: min(100%, 420px);
+    justify-self: center;
+  }
+  .pm__close {
+    top: 24px;
+    right: 24px;
+  }
+}
