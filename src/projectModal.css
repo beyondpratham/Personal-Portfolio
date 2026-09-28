@@ -206,3 +206,342 @@ html.pm-open body {
     right: 24px;
   }
 }
+
+/* ==================================================================
+   PROFILE (developer page) — the landing page's essentials, condensed.
+   Left: who, about, experience, at a glance. Right: the tech stack.
+   ================================================================== */
+.pm--profile .pm__panel {
+  display: block;
+  width: min(1080px, 100%);
+  padding: clamp(20px, 3vw, 32px);
+}
+/* first in the panel and sticky, so it stays reachable while scrolling */
+.pm--profile .pm__close {
+  position: sticky;
+  top: 4px;
+  display: block;
+  margin: 0 0 -42px auto;
+}
+.pf {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 32px;
+  align-items: start;
+}
+.pf-main {
+  display: grid;
+  gap: 26px;
+  min-width: 0;
+}
+.pf .pf-sec {
+  padding: 0; /* the legacy stylesheet pads every <section> */
+}
+.pf-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.pf-dim {
+  color: var(--ink-dim);
+}
+
+/* who */
+.pf-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.pf-head__photo {
+  width: 84px;
+  height: 84px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+.pf-head h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+.pf-pron {
+  margin-left: 4px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ink-dim);
+}
+.pf-head__role {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.pf-head__meta {
+  margin: 1px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+}
+.pf-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.pf-icon {
+  width: 38px;
+  height: 38px;
+  color: var(--ink);
+}
+.pf-icon > .lg__surface {
+  display: grid;
+  place-items: center;
+}
+.pf-icon svg {
+  position: relative;
+  z-index: 4;
+  width: 17px;
+  height: 17px;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pf-icon svg.fill {
+  fill: currentColor;
+}
+.pf-icon svg.line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pf-icon:hover svg {
+  transform: scale(1.15);
+}
+
+/* about */
+.pf-about__lead {
+  margin: 0 0 6px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.pf-about p.pf-dim {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.pf-focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pf-focus li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--tag-bd);
+  font: 500 0.72rem "JetBrains Mono", ui-monospace, monospace;
+  color: var(--ink-dim);
+}
+
+/* experience */
+.pf-time {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pf-time > li {
+  position: relative;
+  padding-left: 18px;
+  border-left: 2px solid color-mix(in srgb, var(--ink) 14%, transparent);
+}
+.pf-time > li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 3px var(--card);
+}
+.pf-time > li + li::before {
+  background: var(--card);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.pf-time__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  font-size: 0.98rem;
+}
+.pf-time__head span {
+  font: 500 0.75rem "JetBrains Mono", ui-monospace, monospace;
+  color: var(--ink-dim);
+}
+.pf-time__org {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+}
+.pf-time ul {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding-left: 16px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  list-style: disc;
+}
+.pf-time ul li::marker {
+  color: var(--ink-dim);
+}
+.pf-time__links {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/* at a glance */
+.pf-glance dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 26px;
+  margin: 0;
+}
+.pf-glance dl > div {
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.pf-glance .pf-edu {
+  grid-column: 1 / -1;
+}
+.pf-glance dt {
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+}
+.pf-glance dd {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.pf-edu dd {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 26px;
+}
+.pf-edu__item b {
+  display: block;
+  font-weight: 600;
+}
+.pf-edu__item span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+}
+.pf-list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 16px;
+  list-style: disc;
+}
+.pf-list li::marker {
+  color: var(--ink-dim);
+}
+
+/* tech stack: its own column from the top right, scrolling with the rest,
+   and as tall as the left column */
+.pf-side {
+  display: grid;
+  align-self: stretch;
+  align-content: start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 24px;
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.pf-label--big {
+  margin: 4px 52px 0 0; /* clear the close button */
+  font-size: 0.8rem;
+  color: var(--ink);
+}
+.pf-stack__row .pf-label {
+  margin-bottom: 7px;
+}
+.pf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pf-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), inset 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pf-chips li:has(img) {
+  padding-left: 6px;
+}
+.pf-chips li:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+.pf-chips img {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 860px) {
+  /* one column: who, then the stack, then everything else */
+  .pf {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .pf-main {
+    display: contents;
+  }
+  .pf-head {
+    order: 1;
+    padding-right: 48px;
+  }
+  .pf-side {
+    order: 2;
+  }
+  .pf-about,
+  .pf-exp,
+  .pf-glance {
+    order: 3;
+  }
+  .pf-label--big {
+    margin-right: 0;
+  }
+  .pf-glance dl,
+  .pf-edu dd {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

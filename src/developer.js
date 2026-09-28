@@ -65,52 +65,75 @@ function fadeIn() {
 const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
- * "Pratham": the landing page's hacker scramble, toned down — monochrome, no
- * font or size swaps, letters just cycle through glyphs and resolve in order.
+ * "develops." decodes itself: each letter cycles through code glyphs in
+ * different shades of grey before settling, left to right. Plays once on
+ * load and again on hover. "Pratham" stays still.
  */
-function initNameHack() {
+function initVerbHack() {
   const el = document.querySelector("[data-hack]");
   if (!el) return;
   const text = el.textContent;
   el.textContent = "";
+  el.setAttribute("aria-label", text);
   const cells = [...text].map((ch) => {
     const s = Object.assign(document.createElement("span"), { className: "hk", textContent: ch });
     el.appendChild(s);
     return s;
   });
-  el.setAttribute("aria-label", text);
-  const GLYPHS = "01<>/{}[]#$%&*+=?_|~";
+  const GLYPHS = "01<>/{}[]#$%&*+=?_|~;:";
+  const SHADES = [18, 32, 46, 60, 74, 88]; // % of ink, mixed into the page background
+  const pick = (a) => a[(Math.random() * a.length) | 0];
   let timers = [];
   const clear = () => (timers.forEach((t) => (clearInterval(t), clearTimeout(t))), (timers = []));
-  el.addEventListener("pointerenter", () => {
-    if (reduced()) return;
-    clear();
-    el.classList.add("is-hacking");
-    cells.forEach((c, i) => {
-      c.style.width = `${c.offsetWidth}px`;
-      const iv = setInterval(() => (c.textContent = GLYPHS[(Math.random() * GLYPHS.length) | 0]), 55);
-      timers.push(iv);
-      timers.push(setTimeout(() => (clearInterval(iv), (c.textContent = text[i])), 260 + i * 70));
-    });
-    timers.push(setTimeout(() => el.classList.remove("is-hacking"), 300 + cells.length * 70));
-  });
-  el.addEventListener("pointerleave", () => {
-    clear();
+  const settle = () =>
     cells.forEach((c, i) => {
       c.textContent = text[i];
-      c.style.width = "";
+      c.style.removeProperty("--hk");
+      c.style.width = c.style.clipPath = "";
     });
-    el.classList.remove("is-hacking");
-  });
+  const play = () => {
+    if (reduced()) return;
+    clear();
+    cells.forEach((c, i) => {
+      if (!/\w/.test(text[i])) return; // punctuation stays put
+      // lock the letter's width and clip wider glyphs to it, so nothing spills sideways
+      c.style.width = `${c.offsetWidth}px`;
+      c.style.clipPath = "inset(-0.3em 0)";
+      const iv = setInterval(() => {
+        c.textContent = pick(GLYPHS);
+        c.style.setProperty("--hk", `${pick(SHADES)}%`);
+      }, 55);
+      timers.push(iv);
+      timers.push(
+        setTimeout(() => {
+          clearInterval(iv);
+          c.textContent = text[i];
+          c.style.removeProperty("--hk");
+          c.style.width = c.style.clipPath = "";
+        }, 280 + i * 75)
+      );
+    });
+  };
+  el.addEventListener("pointerenter", play);
+  el.addEventListener("pointerleave", () => (clear(), settle()));
+  setTimeout(play, 350);
+}
+
+/** The photo + name open a profile popup, so this page stands on its own. */
+function initProfile(modal) {
+  const btn = document.querySelector("[data-profile]");
+  const tpl = document.getElementById("profileTpl");
+  if (!btn || !tpl || !modal) return;
+  btn.addEventListener("click", () => modal.openTemplate(btn, tpl, "pm--profile"));
 }
 
 initTheme();
 const lenis = initSmoothScroll();
-initNameHack();
+initVerbHack();
 initReels();
 initWobble(); // featured glass pane, like the landing page
 initWobble(".proj", { surface: null, tilt: 4 });
-initProjectModal({ lenis, variant: "dev" });
+initProfile(initProjectModal({ lenis, variant: "dev" }));
 highlight();
 initGlassLight();
 initResume();

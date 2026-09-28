@@ -56,19 +56,24 @@ body[data-page="developer"] {
   letter-spacing: -0.04em;
   color: var(--ink);
 }
-.dev-title a {
+.dev-title__home {
   color: inherit;
   text-decoration: none;
+  text-decoration-thickness: 0.055em;
+  text-underline-offset: 0.12em;
 }
-.dev-title__name {
+.dev-title__home:hover,
+.dev-title__home:focus-visible {
+  text-decoration: underline;
+}
+.dev-title__verb {
   display: inline-block;
 }
-.dev-title__name .hk {
+.dev-title__verb .hk {
   display: inline-block;
   white-space: pre;
-}
-.dev-title__name.is-hacking .hk {
-  color: var(--ink-dim);
+  /* while decoding, each glyph takes its own shade of grey */
+  color: color-mix(in srgb, var(--ink) var(--hk, 100%), var(--bg));
 }
 
 /* monochrome page: the resume accent goes ink instead of pink */
@@ -94,9 +99,69 @@ body[data-page="developer"] .resume-btn i {
   padding: 8px 12px 8px 4px;
 }
 .dev-id {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 14px;
+  align-self: flex-start;
+  margin: -8px;
+  padding: 8px 14px 8px 8px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.35s ease;
+}
+.dev-id:hover,
+.dev-id:focus-visible {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+.dev-id:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.dev-id__photo {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+.dev-id:hover .dev-id__photo {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 4.5px var(--ink);
+}
+.dev-id__pron {
+  margin-left: 4px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+}
+.dev-id__more {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--tag-bd);
+  color: var(--ink-dim);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.dev-id__more svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.dev-id:hover .dev-id__more {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.dev-id:hover .dev-id__more svg {
+  transform: translate(2px, -2px);
 }
 .dev-id__photo {
   width: 56px;
@@ -474,42 +539,13 @@ body[data-page="developer"] .resume-btn i {
   cursor: pointer;
 }
 
-/* ---- back to the landing page ---- */
+/* ---- header lead: the title (the back button is gone) ---- */
 .dev-head__lead {
   display: flex;
   align-items: center;
-  gap: clamp(12px, 1.6vw, 20px);
   min-width: 0;
 }
-.back-btn {
-  flex: none;
-  width: 52px;
-  height: 52px;
-  color: var(--ink);
-}
-.back-btn > .lg__surface {
-  display: grid;
-  place-items: center;
-}
-.back-btn svg {
-  position: relative;
-  z-index: 4;
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.back-btn:hover svg,
-.back-btn:focus-visible svg {
-  transform: translateX(-4px);
-}
-.back-btn:active > .lg__surface {
-  transform: scale(0.92);
-}
+
 /* ---- retro pixel cursors: classic arrow, pointing hand on anything clickable ---- */
 body[data-page="developer"],
 body[data-page="developer"] * {
@@ -554,14 +590,6 @@ body[data-page="developer"] :is(a, button, [role="button"], label, summary, [dat
   .dev-head .hello-actions {
     width: 100%;
     justify-content: flex-end;
-  }
-  .back-btn {
-    width: 40px;
-    height: 40px;
-  }
-  .back-btn svg {
-    width: 18px;
-    height: 18px;
   }
   .proj-grid {
     grid-template-columns: minmax(0, 1fr);

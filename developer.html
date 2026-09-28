@@ -26,8 +26,7 @@
     <main class="page dev">
       <header class="dev-head">
         <div class="dev-head__lead">
-          <a class="lg lg--circle back-btn" href="index.html" aria-label="Back to home"><span class="lg__surface"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg></span></a>
-          <h1 class="dev-title"><a class="dev-title__name" href="index.html" data-hack>Pratham</a> develops.</h1>
+          <h1 class="dev-title"><a class="dev-title__home" href="index.html">Pratham</a> <span class="dev-title__verb" data-hack>develops.</span></h1>
         </div>
         <div class="hello-actions" id="helloActions">
           <button class="lg lg--pill theme-pill" data-theme-toggle aria-label="Dark mode" aria-pressed="false">
@@ -56,13 +55,14 @@
 
       <section class="dev-hero">
         <div class="dev-intro" data-fade>
-          <div class="dev-id">
-            <img class="dev-id__photo" src="/images/profile-face.jpg" alt="Pratham Singhal" />
-            <div class="dev-id__text">
-              <span class="dev-id__name">Pratham Singhal</span>
+          <button class="dev-id" type="button" data-profile aria-haspopup="dialog" aria-label="Open Pratham's profile">
+            <img class="dev-id__photo" src="/images/profile-face.jpg" alt="" />
+            <span class="dev-id__text">
+              <span class="dev-id__name">Pratham Singhal <span class="dev-id__pron">he/him</span></span>
               <span class="dev-id__role">Software Development Engineer</span>
-            </div>
-          </div>
+            </span>
+            <span class="dev-id__more"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg></span>
+          </button>
           <p class="dev-intro__text">
             I build backend systems <br />that move money <br />at global scale.
           </p>
@@ -223,6 +223,94 @@
       </footer>
       <p class="copyright">&copy; 2026 Pratham Singhal</p>
     </main>
+
+    <template id="profileTpl">
+      <div class="pf">
+        <div class="pf-main">
+          <header class="pf-head pm-bit">
+            <img class="pf-head__photo" src="/images/profile-face.jpg" alt="" />
+            <div class="pf-head__who">
+              <h2 id="pfTitle">Pratham Singhal <span class="pf-pron">he/him</span></h2>
+              <p class="pf-head__role">Software Development Engineer 1 &middot; NatWest Group</p>
+              <p class="pf-head__meta">New Delhi, India</p>
+              <div class="pf-icons"><a class="lg lg--circle pf-icon" href="https://linkedin.com/in/beyondpratham" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><span class="lg__surface"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span></a><a class="lg lg--circle pf-icon" href="https://github.com/beyondpratham" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><span class="lg__surface"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a><a class="lg lg--circle pf-icon" href="mailto:prathamrd28@gmail.com" aria-label="Email" title="Email"><span class="lg__surface"><svg class="line" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span></a><a class="lg lg--circle pf-icon" href="https://codeforces.com/profile/Pratham_2021347" target="_blank" rel="noopener" aria-label="Codeforces" title="Codeforces"><span class="lg__surface"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 7.5C5.328 7.5 6 8.172 6 9v10.5c0 .828-.672 1.5-1.5 1.5h-3C.673 21 0 20.328 0 19.5V9c0-.828.673-1.5 1.5-1.5h3zm9-4.5c.828 0 1.5.672 1.5 1.5v15c0 .828-.672 1.5-1.5 1.5h-3c-.827 0-1.5-.672-1.5-1.5v-15c0-.828.673-1.5 1.5-1.5h3zm9 7.5c.828 0 1.5.672 1.5 1.5v7.5c0 .828-.672 1.5-1.5 1.5h-3c-.828 0-1.5-.672-1.5-1.5V12c0-.828.672-1.5 1.5-1.5h3z"/></svg></span></a></div>
+            </div>
+          </header>
+
+          <section class="pf-sec pf-about pm-bit">
+            <span class="pf-label">About</span>
+            <p class="pf-about__lead">I build backend systems for international payments &mdash; REST platforms, integrations and cloud infrastructure.</p>
+            <p class="pf-dim">Computer Science &amp; Design graduate from IIIT&#8209;Delhi, so I care as much about how software feels as how it scales.</p>
+            <ul class="pf-focus"><li>Distributed systems</li><li>API platforms</li><li>Cloud infrastructure</li><li>ML / NLP</li></ul>
+          </section>
+
+          <section class="pf-sec pf-exp pm-bit">
+            <span class="pf-label">Experience</span>
+            <ol class="pf-time">
+              <li>
+                <div class="pf-time__head"><b>Software Development Engineer 1</b><span>Jul 2025 &ndash; now</span></div>
+                <span class="pf-time__org">NatWest Group &middot; Gurugram</span>
+                <ul>
+                  <li>Own and scale a Java (Spring Boot) / Python REST platform for international payments, adopted by 12+ engineering teams.</li>
+                  <li>Built a webhook-driven Adobe eSign integration handling 8,000+ requests/hour, secured with mTLS.</li>
+                  <li>Cut p95 latency ~35% with a Redis/Valkey cache on AWS; releases from hours to under 15 minutes via Docker, Kubernetes and CI/CD.</li>
+                </ul>
+              </li>
+              <li>
+                <div class="pf-time__head"><b>Undergraduate Research Assistant</b><span>Aug 2023 &ndash; Apr 2024</span></div>
+                <span class="pf-time__org">IIIT&#8209;Delhi &middot; Dr. Dhruv Kumar</span>
+                <ul>
+                  <li>Python pipeline (scraping, PDF-to-CSV) turning NIRF reports into datasets for a React ranking dashboard.</li>
+                  <li>Ran user research on India&rsquo;s ranking methodology; co-authored the HCI paper.</li>
+                </ul>
+                <span class="pf-time__links"><a class="proj__link" href="https://github.com/plon-Susk7/CS-RANKINGS" target="_blank" rel="noopener">Code &nearr;</a><a class="proj__link" href="https://www.overleaf.com/read/knszfvykbjvv#de0c29" target="_blank" rel="noopener">Paper &nearr;</a></span>
+              </li>
+            </ol>
+          </section>
+
+          <section class="pf-sec pf-glance pm-bit">
+            <span class="pf-label">At a glance</span>
+            <dl>
+              <div class="pf-edu">
+                <dt>Education</dt>
+                <dd>
+                  <div class="pf-edu__item">
+                    <b>B.Tech, Computer Science &amp; Design</b>
+                    <span>IIIT&#8209;Delhi &middot; minor in Economics &middot; 2021&ndash;2025</span>
+                    <span class="pf-dim">DSA &middot; OOP &middot; Operating Systems &middot; DBMS &middot; Networks &middot; Distributed Systems &middot; ML &middot; NLP</span>
+                  </div>
+                  <div class="pf-edu__item">
+                    <b>Bal Bharati Public School, GRH Marg</b>
+                    <span>CBSE XII 97.2% &middot; X 98.4% (school topper) &middot; 2018&ndash;2020</span>
+                  </div>
+                </dd>
+              </div>
+              <div>
+                <dt>Recognition</dt>
+                <dd><ul class="pf-list">
+                  <li>Codeforces Specialist</li>
+                  <li>CBSE merit certificate &mdash; top 0.1%</li>
+                  <li>Times of India NIE Student of the Year, 2018</li>
+                </ul></dd>
+              </div>
+              <div>
+                <dt>Leadership</dt>
+                <dd><ul class="pf-list">
+                  <li>Content Lead, ACM Student Chapter</li>
+                  <li>Core Member, Enactus</li>
+                  <li>President, Interact Club (Rotary)</li>
+                </ul></dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+
+        <aside class="pf-side pm-bit">
+          <span class="pf-label pf-label--big">Tech stack</span>
+          <div class="pf-stack__row"><span class="pf-label">Languages</span><ul class="pf-chips"><li><img src="/tech/java.svg" alt="" />Java</li><li><img src="/tech/python.svg" alt="" />Python</li><li><img src="/tech/cplusplus.svg" alt="" />C++</li><li><img src="/tech/typescript.svg" alt="" />TypeScript</li><li><img src="/tech/javascript.svg" alt="" />JavaScript</li><li>SQL</li></ul></div><div class="pf-stack__row"><span class="pf-label">Backend</span><ul class="pf-chips"><li><img src="/tech/spring.svg" alt="" />Spring Boot</li><li><img src="/tech/nodejs.svg" alt="" />Node.js</li><li>REST APIs</li><li>FastAPI</li><li>Flask</li><li>Streamlit</li><li>Webhooks</li><li>mTLS</li></ul></div><div class="pf-stack__row"><span class="pf-label">Frontend</span><ul class="pf-chips"><li><img src="/tech/react.svg" alt="" />React</li><li>Tailwind CSS</li><li>GSAP</li><li>HTML/CSS</li></ul></div><div class="pf-stack__row"><span class="pf-label">Data</span><ul class="pf-chips"><li><img src="/tech/postgresql.svg" alt="" />PostgreSQL</li><li><img src="/tech/mongodb.svg" alt="" />MongoDB</li><li><img src="/tech/redis.svg" alt="" />Redis</li><li>MySQL</li><li>Valkey</li></ul></div><div class="pf-stack__row"><span class="pf-label">Cloud &amp; DevOps</span><ul class="pf-chips"><li><img src="/tech/aws.svg" alt="" />AWS</li><li><img src="/tech/docker.svg" alt="" />Docker</li><li><img src="/tech/kubernetes.svg" alt="" />Kubernetes</li><li><img src="/tech/gitlab.svg" alt="" />GitLab CI/CD</li><li><img src="/tech/linux.svg" alt="" />Linux</li><li>GitHub Actions</li></ul></div><div class="pf-stack__row"><span class="pf-label">Testing &amp; tooling</span><ul class="pf-chips"><li>pytest</li><li>Git</li><li>Gradle</li><li>Vite</li></ul></div><div class="pf-stack__row"><span class="pf-label">ML &amp; AI</span><ul class="pf-chips"><li>PyTorch</li><li>Hugging Face</li><li>scikit-learn</li><li>OpenCV</li><li>NumPy</li><li>Gemini API</li></ul></div>
+        </aside>
+      </div>
+    </template>
 
     <script type="module" src="/src/developer.js"></script>
   </body>

@@ -10,7 +10,6 @@ const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matc
  */
 export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
   const cards = [...document.querySelectorAll(".proj[data-more]")];
-  if (!cards.length) return;
 
   const pm = document.createElement("div");
   pm.className = `pm pm--${variant}`;
@@ -18,6 +17,9 @@ export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
   pm.innerHTML = `
     <div class="pm__veil" data-pm-close></div>
     <div class="pm__panel" role="dialog" aria-modal="true" aria-labelledby="pmTitle" data-lenis-prevent>
+      <button class="lg lg--circle pm__close" type="button" data-pm-close aria-label="Close">
+        <span class="lg__surface"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></span>
+      </button>
       <div class="pm__media"><img class="pm__poster" alt="" /><video class="pm__video" muted loop playsinline></video></div>
       <div class="pm__body">
         <span class="pm__chip"></span>
@@ -26,9 +28,7 @@ export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
         <ul class="pm__points"></ul>
         <div class="pm__foot"></div>
       </div>
-      <button class="lg lg--circle pm__close" type="button" data-pm-close aria-label="Close">
-        <span class="lg__surface"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></span>
-      </button>
+      <div class="pm__custom" hidden></div>
     </div>`;
   document.body.append(pm);
 
@@ -40,12 +40,37 @@ export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
   const video = $(".pm__video");
   const body = $(".pm__body");
   const closeBtn = $(".pm__close");
+  const custom = $(".pm__custom");
   let source = null;
   let busy = false;
+  let customClass = "";
+
+  // project layout (media + details) vs. free-form content from a <template>
+  const useProject = () => {
+    if (customClass) pm.classList.remove(customClass);
+    custom.hidden = true;
+    custom.replaceChildren();
+    media.hidden = false;
+    body.hidden = false;
+    panel.setAttribute("aria-labelledby", "pmTitle");
+  };
+  const useCustom = (tpl, cls) => {
+    if (customClass) pm.classList.remove(customClass);
+    customClass = cls;
+    pm.classList.add(cls);
+    media.hidden = true;
+    body.hidden = true;
+    video.removeAttribute("src");
+    custom.replaceChildren(tpl.content.cloneNode(true));
+    custom.hidden = false;
+    const h = custom.querySelector("h2[id]");
+    if (h) panel.setAttribute("aria-labelledby", h.id);
+  };
 
   video.addEventListener("playing", () => media.classList.add("has-frame"));
 
   const fill = (card) => {
+    useProject();
     const more = card.querySelector("template.proj__more")?.content;
     $(".pm__chip").textContent = card.querySelector(".proj__chip")?.textContent.trim() || "";
     $("#pmTitle").textContent = card.querySelector("h3").textContent;
@@ -87,13 +112,14 @@ export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
       scaleY: r.height / p.height,
     };
   };
-  const bits = () => [media, ...body.children];
+  const bits = () =>
+    custom.hidden ? [media, ...body.children] : [...custom.querySelectorAll(".pm-bit")];
 
-  const open = (card) => {
+  const open = (card, prepare = () => fill(card)) => {
     if (busy) return;
     busy = true;
     source = card;
-    fill(card);
+    prepare();
     pm.hidden = false;
     document.documentElement.classList.add("pm-open");
     lenis?.stop();
@@ -139,7 +165,7 @@ export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
       card?.classList.remove("is-lifted");
       document.documentElement.classList.remove("pm-open");
       lenis?.start();
-      card?.querySelector(".proj__hit")?.focus({ preventScroll: true });
+      (card?.querySelector(".proj__hit") || card)?.focus({ preventScroll: true });
       // the card catches its surface back with a little bounce
       if (card && !reduced())
         gsap.fromTo(
@@ -172,6 +198,13 @@ export function initProjectModal({ lenis = null, variant = "dev" } = {}) {
       else if (!e.shiftKey && i === f.length - 1) (e.preventDefault(), f[0].focus());
     }
   });
+
+  return {
+    /** Open free-form content (a <template>) flying out of `trigger`, e.g. the profile. */
+    openTemplate(trigger, tpl, cls = "pm--custom") {
+      open(trigger, () => useCustom(tpl, cls));
+    },
+  };
 }
 
 /** Hover-to-play reels. The poster is a real <img>; the video only shows once it has a frame. */
