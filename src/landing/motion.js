@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const lerp = (a, b, t) => a + (b - a) * t;
 
-/** Entrance after the loader. */
+/** Entrance on page load. */
 export function playIntro({ hello, taglineWords }) {
   if (reduced()) return;
   const letters = hello.letters.map((l) => l.inner);

@@ -22,8 +22,16 @@
           if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
+        // keep the page hidden until the intro has set its start states (no double reveal)
+        var d = document.documentElement;
+        d.classList.add("intro-pending");
+        setTimeout(function () { d.classList.remove("intro-pending"); }, 3000);
       })();
     </script>
+    <!-- inline so it applies on the very first paint, before any stylesheet/JS -->
+    <style>
+      html.intro-pending .page { visibility: hidden; }
+    </style>
   </head>
   <body data-page="landing">
     <svg class="glass-defs" aria-hidden="true">
@@ -36,14 +44,6 @@
     </svg>
 
     <div class="spotlight" aria-hidden="true"></div>
-
-    <div class="preloader" id="preloader" aria-hidden="true">
-      <div class="preloader__word">
-        <span>P</span><span>R</span><span>A</span><span>T</span><span>H</span
-        ><span>A</span><span>M</span>
-      </div>
-      <div class="preloader__bar"><span></span></div>
-    </div>
 
     <!-- title bar that forms on scroll: blurred band + docked photo; the headline shrinks into it -->
     <div class="titlebar" aria-hidden="true"></div>

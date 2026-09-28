@@ -1,7 +1,6 @@
 import "./style.css";
 import "./landing.css";
 import { initTheme } from "./theme.js";
-import { runPreloader } from "./preloader.js";
 import { initSmoothScroll } from "./smoothScroll.js";
 import { initGlassLight } from "./landing/glassLight.js";
 import { initOrbit } from "./landing/orbit.js";
@@ -26,10 +25,11 @@ async function bootstrap() {
   const city = initCity();
   const hello = initHello();
 
-  const [taglineWords] = await Promise.all([initTagline(), runPreloader()]);
+  const taglineWords = await initTagline();
 
   initGlassLight();
   playIntro({ hello, taglineWords });
+  document.documentElement.classList.remove("intro-pending");
   initTitlebar({ lenis, hello });
   initScrollScenes(city);
 }
